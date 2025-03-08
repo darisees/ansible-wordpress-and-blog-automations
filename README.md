@@ -36,11 +36,11 @@ Automates the setup of a blog application with similar principles:
 3. Run one of the following commands:
 
    ```sh
-   ansible-playbook -i inventory.ini playbooks/wordpress.yml
+   ansible-playbook -i inventory.ini wordpress.yml
    ```
    or
    ```sh
-   ansible-playbook -i inventory.ini playbooks/blog.yml
+   ansible-playbook -i inventory.ini blog.yml
    ```
 4. Access the deployed application via your web browser
 
