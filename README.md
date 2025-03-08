@@ -1,45 +1,49 @@
-# Getting Started
+# Ansible WordPress & Blog Automation
 
-Welcome to the Ansible Playbook Repository for Automating WordPress and Blog Setup. This repository contains two playbooks designed to streamline the deployment process of WordPress and a blog system using Ansible.
+Welcome to the Ansible Playbook Repository for automating the deployment of WordPress and a blog system. This repository is structured to help users easily set up and manage these applications on a server using Ansible.
 
-## Folder Structure
+## 📁 Folder Structure
 
-The repository contains the following structure:
+The repository contains the following directories and files:
 
-- `wordpress.yml` : Playbook for installing and configuring WordPress.
-- `blog.yml` : Playbook for setting up a blog system.
-- `inventory` : File that defines the target hosts for Ansible.
-- `docs/` : Documentation related to the playbooks and setup process.
+- **`job-sheet/`** : Contains job sheets that explain the automation process in detail.
+- **`playbooks/`** : Stores the Ansible playbooks for deploying WordPress and the blog application.
+- **`LICENSE`** : The license file for this repository.
+- **`README.md`** : This document, providing an overview of the repository.
 
-## Playbook Descriptions
+## 📜 Playbook Descriptions
 
-### WordPress Playbook
-This playbook automates the installation and configuration of a WordPress website, including:
+### ▶ WordPress Playbook (`playbooks/wordpress.yml`)
+Automates the installation and configuration of a WordPress website, including:
 
 - Installing Apache, MySQL, and PHP.
-- Setting up a MySQL database for WordPress.
-- Downloading and configuring WordPress.
-- Adjusting Apache settings for proper deployment.
+- Creating and configuring a MySQL database for WordPress.
+- Downloading and setting up WordPress.
+- Configuring Apache for WordPress deployment.
 
-### Blog Playbook
-This playbook is used for setting up a simple blog system with similar automation principles. It includes:
+### ▶ Blog Playbook (`playbooks/blog.yml`)
+Automates the setup of a blog application with similar principles:
 
-- Web server installation.
-- Database setup.
-- Application deployment.
+- Installing required packages (Apache, MariaDB, PHP).
+- Setting up the MySQL database and user.
+- Cloning a blog application from a Git repository.
+- Configuring the web server for proper deployment.
 
-## How to Use
+## 🚀 How to Use
 
-1. Ensure you have Ansible installed.
-2. Update the `inventory` file with your server details.
-3. Run the playbook:
+1. Ensure Ansible is installed on your system.
+2. Update the `inventory.ini` file with your server details.
+3. Run one of the following commands:
+
    ```sh
-   ansible-playbook -i inventory wordpress.yml
+   ansible-playbook -i inventory.ini playbooks/wordpress.yml
    ```
-   or
+or
    ```sh
-   ansible-playbook -i inventory blog.yml
+   ansible-playbook -i inventory.ini playbooks/blog.yml
    ```
-4. Verify the installation by accessing the web server URL.
+4. Access the deployed application via your web browser
 
-For more details, check the documentation in the `docs/` folder.
+For detailed explanations, refer to the documentation in the **`job-sheet/`** folder.
+
+Feel free to contribute to improve these playbooks or optimize the configurations! 🚀
