@@ -13,7 +13,7 @@ The repository contains the following directories and files:
 
 ## 📜 Playbook Descriptions
 
-### ▶ WordPress Playbook (`playbooks/wordpress.yml`)
+### WordPress Playbook (`playbooks/wordpress.yml`)
 Automates the installation and configuration of a WordPress website, including:
 
 - Installing Apache, MySQL, and PHP.
@@ -21,7 +21,7 @@ Automates the installation and configuration of a WordPress website, including:
 - Downloading and setting up WordPress.
 - Configuring Apache for WordPress deployment.
 
-### ▶ Blog Playbook (`playbooks/blog.yml`)
+### Blog Playbook (`playbooks/blog.yml`)
 Automates the setup of a blog application with similar principles:
 
 - Installing required packages (Apache, MariaDB, PHP).
@@ -46,4 +46,4 @@ Automates the setup of a blog application with similar principles:
 
 For detailed explanations, refer to the documentation in the **`job-sheet/`** folder.
 
-Feel free to contribute to improve these playbooks or optimize the configurations! 🚀
+Feel free to contribute to improve these playbooks or optimize the configurations!
