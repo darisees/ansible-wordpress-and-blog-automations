@@ -38,7 +38,7 @@ Automates the setup of a blog application with similar principles:
    ```sh
    ansible-playbook -i inventory.ini playbooks/wordpress.yml
    ```
-or
+   or
    ```sh
    ansible-playbook -i inventory.ini playbooks/blog.yml
    ```
