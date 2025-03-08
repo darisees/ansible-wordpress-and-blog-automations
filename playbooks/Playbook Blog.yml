@@ -1,0 +1,146 @@
+- hosts: blog
+  become: yes
+  vars:
+    mysql_db_name: cyber23
+    mysql_user: cyber
+    mysql_user_pass: pass2023
+    mysql_root_pass: 19091Cyber
+    git_repo: "https://github.com/jonisetiyawan48/cyber_ukk.git"
+    web_root: "/var/www/html"
+
+  tasks:
+    - name: Update package repository
+      apt:
+        update_cache: yes
+
+    - name: Install Apache, MariaDB, and PHP
+      apt:
+        name:
+          - apache2
+          - mariadb-server
+          - php
+          - php-mysqli
+          - php-mbstring
+        state: present
+
+    - name: Start and enable Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Install Python MySQL library
+      apt:
+        name: python3-pymysql
+        state: present
+
+    - name: Start and enable MariaDB service
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: Update root password for MariaDB
+      mysql_user:
+        name: root
+        host: localhost
+        password: "{{ mysql_root_pass }}"
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        state: present
+
+    - name: Ensure MariaDB root password is set
+      mysql_user:
+        name: root
+        password: "{{ mysql_root_pass }}"
+        host: localhost
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+        login_unix_socket: null
+        update_password: always
+      ignore_errors: yes
+
+    - name: Remove anonymous MariaDB users
+      mysql_user:
+        name: ''
+        host_all: yes
+        state: absent
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+        login_unix_socket: null
+
+    - name: Remove test database
+      mysql_db:
+        name: test
+        state: absent
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+        login_unix_socket: null
+
+    - name: Disallow root login remotely
+      mysql_user:
+        name: root
+        host: '%'
+        state: absent
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+
+    - name: Reload MySQL privileges
+      command: mysql -u root -p{{ mysql_root_pass }} -e "FLUSH PRIVILEGES;"
+
+    - name: Create .my.cnf file for root
+      copy:
+        dest: /root/.my.cnf
+        content: |
+          [client]
+          user=root
+          password={{ mysql_root_pass }}
+        mode: '0600'
+
+    - name: Create MySQL user
+      mysql_user:
+        name: "{{ mysql_user }}"
+        password: "{{ mysql_user_pass }}"
+        priv: "{{ mysql_db_name }}.*:ALL"
+        host: "%"
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+        login_unix_socket: null
+
+    - name: Create MySQL database
+      mysql_db:
+        name: "{{ mysql_db_name }}"
+        state: present
+        login_user: root
+        login_password: "{{ mysql_root_pass }}"
+        login_unix_socket: null
+
+    - name: Check if web root directory exists
+      stat:
+        path: "{{ web_root }}"
+      register: web_root_stat
+
+    - name: Ensure web root directory is empty
+      command: rm -rf {{ web_root }}
+      when: web_root_stat.stat.exists and web_root_stat.stat.isdir
+
+    - name: Clone Git repository if not present
+      git:
+        repo: "{{ git_repo }}"
+        dest: "{{ web_root }}/"
+        update: yes
+
+    - name: Import SQL file into database
+      mysql_db:
+        name: "{{ mysql_db_name }}"
+        state: import
+        target: "{{ web_root }}/db.sql"
+
+    - name: Enable the new site configuration
+      command: a2ensite 000-default.conf
+
+    - name: Restart Apache to apply changes
+      service:
+        name: apache2
+        state: restarted
