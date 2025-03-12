@@ -1,6 +1,6 @@
 # Job Sheet
 
-This folder contains documentation and guidelines for using Ansible playbooks to automate the deployment of WordPress and Blog applications.  
+This directory contains documentation and guidelines for using Ansible playbooks to automate the deployment of WordPress and Blog applications.  
 
 ## Contents
 1. **WordPress Automation** (`wordpress.yml`)  
