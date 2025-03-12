@@ -29,7 +29,7 @@ Automates the setup of a blog application with similar principles:
 - Cloning a blog application from a Git repository.
 - Configuring the web server for proper deployment.
 
-## 🚀 How to Use
+## 🔧 How to Use
 
 1. Ensure Ansible is installed on your system.
 2. Update the `inventory.ini` file with your server details.
