@@ -1,6 +1,5 @@
 # Job Sheet: Automating WordPress Installation with Ansible
 
-## Objective
 This job sheet will guide you through the process of setting up a fully automated WordPress installation using Ansible. By the end of this guide, you will have a functioning WordPress site installed on an Apache server with a MySQL database.
 
 ### Steps Covered:
