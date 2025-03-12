@@ -2,7 +2,7 @@
 
 Welcome to the Ansible Playbook Repository for automating the deployment of WordPress and a blog system. This repository is structured to help users easily set up and manage these applications on a server using Ansible.
 
-## 📁 Folder Structure
+## 📁 Directory Structure
 
 The repository contains the following directories and files:
 
@@ -44,6 +44,6 @@ Automates the setup of a blog application with similar principles:
    ```
 4. Access the deployed application via your web browser
 
-For detailed explanations, refer to the documentation in the [**`job-sheet/`**](./job-sheet/) folder.
+For detailed explanations, refer to the documentation in the [**`job-sheet/`**](./job-sheet/) directory.
 
 Feel free to contribute to improve these playbooks or optimize the configurations!
