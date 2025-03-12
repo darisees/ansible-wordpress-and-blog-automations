@@ -1,6 +1,6 @@
 # Ansible Playbooks
 
-This folder contains Ansible playbooks for automating the deployment of WordPress and a blog application.  
+This directory contains Ansible playbooks for automating the deployment of WordPress and a blog application.  
 
 ## Playbooks Available
 1. **`wordpress.yml`**  
