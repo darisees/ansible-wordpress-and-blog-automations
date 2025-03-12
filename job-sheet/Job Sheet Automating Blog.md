@@ -1,6 +1,5 @@
 # Job Sheet: Automating Blog Deployment with Ansible
 
-## Objective
 This job sheet will guide you through the process of setting up an automated deployment for a blog application using Ansible. By the end of this guide, you will have a fully functional blog hosted on an Apache server with a MySQL database.
 
 ### Steps Covered:
