@@ -44,6 +44,6 @@ Automates the setup of a blog application with similar principles:
    ```
 4. Access the deployed application via your web browser
 
-For detailed explanations, refer to the documentation in the **`job-sheet/`** folder.
+For detailed explanations, refer to the documentation in the [**`job-sheet/`**](./job-sheet/) folder.
 
 Feel free to contribute to improve these playbooks or optimize the configurations!
