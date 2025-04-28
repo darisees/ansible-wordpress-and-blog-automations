@@ -44,7 +44,7 @@ ansible -i inventory.ini blog -m ping
     mysql_user: cyber
     mysql_user_pass: pass2023
     mysql_root_pass: 19091Cyber
-    git_repo: "https://github.com/jonisetiyawan48/cyber_ukk.git"
+    git_repo: "https://github.com/jonisetiyawan48/ukk_tkj_2.git"
     web_root: "/var/www/html"
 ```
 - Defines the target host (`blog`).
@@ -116,7 +116,7 @@ ansible -i inventory.ini blog -m ping
         name: "{{ mysql_user }}"
         password: "{{ mysql_user_pass }}"
         priv: "{{ mysql_db_name }}.*:ALL"
-        host: "%"
+        host: "localhost"
         state: present
         login_user: root
         login_password: "{{ mysql_root_pass }}"
