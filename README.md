@@ -53,10 +53,14 @@ The deployment environment used AWS EC2 instances running Ubuntu, with one insta
 │   └── Automate-Web-Deployment-with-Ansible-on-AWS.pdf
 │
 ├── job-sheet/
+│   ├── Job Sheet Automating Blog.md
+│   ├── Job Sheet Automating WordPress.md
+│   └── README.md
 │
 ├── playbooks/
 │   ├── wordpress.yml
-│   └── blog.yml
+│   ├── wordpress.yml
+│   └── README.md
 │
 ├── LICENSE
 │
