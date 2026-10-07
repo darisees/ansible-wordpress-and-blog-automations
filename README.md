@@ -14,7 +14,7 @@ The project also covers supporting infrastructure and deployment components, inc
 
 The overall deployment architecture is illustrated below.
 
-![AWS Ansible Deployment Architecture](./docs/aws-ansible-deployment-architecture.png)
+![AWS Ansible Deployment Architecture](./docs/AWS-ansible-deployment-architecture.png)
 
 The project uses AWS EC2 instances as the deployment environment, with `AnsibleNode` acting as the Ansible control node for configuring the target servers.
 
