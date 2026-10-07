@@ -1,31 +1,46 @@
 # Ansible Playbooks
 
-This directory contains Ansible playbooks for automating the deployment of WordPress and a blog application.  
+This directory contains Ansible playbooks used to automate the deployment and configuration of WordPress and a blog application.
 
-## Playbooks Available
-1. **`wordpress.yml`**  
-   - Automates the installation and configuration of WordPress on an Apache server.  
-   - Sets up the required MySQL database, installs necessary packages, and configures Apache.  
+## Playbooks
 
-2. **`blog.yml`**  
-   - Automates the deployment of a blog application.  
-   - Installs required dependencies, sets up the database, clones the blog repository, and configures Apache.  
+### `wordpress.yml`
+
+Automates the deployment and configuration of WordPress, including:
+
+- Installing Apache, MySQL, and PHP
+- Configuring the WordPress database
+- Downloading and configuring WordPress
+- Configuring the Apache web server
+
+### `blog.yml`
+
+Automates the deployment and configuration of the blog application, including:
+
+- Installing Apache, MariaDB, and PHP
+- Configuring the application database
+- Cloning the blog application from a Git repository
+- Configuring the Apache web server
+- Importing the required SQL data
 
 ## How to Run
-Before running the playbooks, make sure you have:  
-- Ansible installed on your local machine.  
-- An inventory file (`inventory.ini`) with the target server details.  
-- SSH access to the target machine.  
 
-Run the playbooks using the following command:  
+Before running the playbooks, make sure you have:
 
-```sh
+- Ansible installed
+- An inventory file configured with the target server details
+- SSH access to the target servers
+
+From the repository root, run:
+
+```bash
 ansible-playbook -i inventory.ini wordpress.yml
 ```
-or
-```sh
+
+For the blog application:
+
+```bash
 ansible-playbook -i inventory.ini blog.yml
 ```
 
-## Contribution
-Feel free to contribute by improving the playbooks, adding new automation features, or optimizing configurations.
+The playbooks require a properly configured inventory and SSH credentials for the target servers.
